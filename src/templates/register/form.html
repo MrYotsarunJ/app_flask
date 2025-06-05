@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+{% block main_content%}
+<form method="post" action="{{url_for('register.register')}}">
+  <div class="mb-3">
+    <label for="name" class="form-label">ชื่อ</label>
+    <input type="text" class="form-control" id="name" name="name">
+  </div>
+
+  <button type="submit" class="btn btn-primary">ส่งข้อความ</button>
+</form>
+
+{% if data_list.name_data %}
+
+<div class="alert alert-success mt-4">
+  <h4>ข้อมูลที่ได้รับ:</h4>
+  <ul>
+    <li><strong>ชื่อ:</strong> {{ data_list.name_data }}</li>
+  </ul>
+</div>
+
+{% endif %}
+
+
+{% endblock %}
+
+
+{% block page_name%}
+<h1>
+  {{data_list.page_name}}
+</h1>
+{% endblock %}
